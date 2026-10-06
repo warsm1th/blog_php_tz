@@ -5,6 +5,8 @@ declare(strict_types=1);
 use App\Controllers\CategoryController;
 use App\Controllers\HomeController;
 use App\Controllers\PostController;
+use App\Database;
+use App\Repositories\CategoryRepository;
 use App\Router;
 use Smarty\Smarty;
 
@@ -25,7 +27,10 @@ $smarty->setCompileDir($compileDir);
 // экранирование явно через |escape в шаблонах
 $smarty->setEscapeHtml(false);
 
-$homeController = new HomeController($smarty);
+$pdo = Database::connect($config['db'] ?? []);
+$categoryRepository = new CategoryRepository($pdo);
+
+$homeController = new HomeController($smarty, $categoryRepository);
 $categoryController = new CategoryController($smarty);
 $postController = new PostController($smarty);
 
