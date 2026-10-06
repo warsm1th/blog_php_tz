@@ -1,0 +1,11 @@
+/vendor/
+/node_modules/
+/var/
+/.env
+/.env.local
+/.idea/
+/.vscode/
+*.swp
+*.swo
+.DS_Store
+TZ.md
