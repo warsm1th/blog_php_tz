@@ -7,6 +7,7 @@ use App\Controllers\HomeController;
 use App\Controllers\PostController;
 use App\Database;
 use App\Repositories\CategoryRepository;
+use App\Repositories\PostRepository;
 use App\Router;
 use Smarty\Smarty;
 
@@ -29,10 +30,13 @@ $smarty->setEscapeHtml(false);
 
 $pdo = Database::connect($config['db'] ?? []);
 $categoryRepository = new CategoryRepository($pdo);
+$postRepository = new PostRepository($pdo);
+
+$postsPerPage = (int) ($config['posts_per_page'] ?? 5);
 
 $homeController = new HomeController($smarty, $categoryRepository);
-$categoryController = new CategoryController($smarty);
-$postController = new PostController($smarty);
+$categoryController = new CategoryController($smarty, $categoryRepository, $postsPerPage);
+$postController = new PostController($smarty, $postRepository);
 
 $router = new Router();
 $router->get('/', [$homeController, 'index']);
