@@ -6,19 +6,22 @@ $root = dirname(__DIR__);
 
 $envFile = $root . '/.env';
 if (is_readable($envFile)) {
-    foreach (file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) as $line) {
-        $line = trim($line);
-        if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
-            continue;
-        }
+    $lines = file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    if ($lines !== false) {
+        foreach ($lines as $line) {
+            $line = trim($line);
+            if ($line === '' || str_starts_with($line, '#') || !str_contains($line, '=')) {
+                continue;
+            }
 
-        [$name, $value] = explode('=', $line, 2);
-        $name = trim($name);
-        $value = trim($value);
+            [$name, $value] = explode('=', $line, 2);
+            $name = trim($name);
+            $value = trim($value);
 
-        if ($name !== '' && getenv($name) === false) {
-            putenv($name . '=' . $value);
-            $_ENV[$name] = $value;
+            if ($name !== '' && getenv($name) === false) {
+                putenv($name . '=' . $value);
+                $_ENV[$name] = $value;
+            }
         }
     }
 }
