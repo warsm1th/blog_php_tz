@@ -1,0 +1,45 @@
+@use 'variables' as *;
+
+.container {
+  width: min(100% - 2rem, $container-width);
+  margin-inline: auto;
+}
+
+.site-header {
+  background: $color-header;
+  color: #edf3f0;
+  padding: 1.1rem 0;
+  margin-bottom: 2rem;
+}
+
+.site-logo {
+  font-family: $font-serif;
+  font-size: 1.35rem;
+  color: #edf3f0;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+
+  &:hover {
+    color: #fff;
+  }
+}
+
+.site-main {
+  padding-bottom: 3rem;
+}
+
+.site-footer {
+  border-top: 1px solid $color-border;
+  padding: 1.25rem 0 2rem;
+  color: $color-muted;
+  font-size: 0.9rem;
+
+  p {
+    margin: 0;
+  }
+}
+
+.page-title {
+  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  margin-bottom: 1rem;
+}

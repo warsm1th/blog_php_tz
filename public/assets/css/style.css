@@ -1,0 +1,260 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Source Sans 3", "Segoe UI", sans-serif;
+  color: #1a2220;
+  background: linear-gradient(180deg, #e8eeea 0%, #f3f5f2 180px), #f3f5f2;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.25;
+  margin: 0 0 0.6em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+a {
+  color: #0f5c57;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+a:hover {
+  color: #0a4541;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.container {
+  width: min(100% - 2rem, 720px);
+  margin-inline: auto;
+}
+
+.site-header {
+  background: #142421;
+  color: #edf3f0;
+  padding: 1.1rem 0;
+  margin-bottom: 2rem;
+}
+
+.site-logo {
+  font-family: "Source Serif 4", Georgia, serif;
+  font-size: 1.35rem;
+  color: #edf3f0;
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+.site-logo:hover {
+  color: #fff;
+}
+
+.site-main {
+  padding-bottom: 3rem;
+}
+
+.site-footer {
+  border-top: 1px solid #d5ddd8;
+  padding: 1.25rem 0 2rem;
+  color: #5c6b66;
+  font-size: 0.9rem;
+}
+.site-footer p {
+  margin: 0;
+}
+
+.page-title {
+  font-size: clamp(1.6rem, 2vw + 1rem, 2rem);
+  margin-bottom: 1rem;
+}
+
+.category-block {
+  background: #ffffff;
+  border: 1px solid #d5ddd8;
+  border-radius: 4px;
+  padding: 1.25rem 1.35rem 1.4rem;
+  margin-bottom: 1.25rem;
+}
+.category-block__title {
+  font-size: 1.35rem;
+  margin-bottom: 0.35em;
+}
+.category-block__description {
+  color: #5c6b66;
+  margin-bottom: 1rem;
+}
+
+.category-page__description {
+  color: #5c6b66;
+  margin-bottom: 1.25rem;
+}
+
+.post-list {
+  margin-bottom: 1rem;
+}
+.post-list__item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0.85rem;
+  align-items: baseline;
+  padding: 0.65rem 0;
+  border-top: 1px solid #d5ddd8;
+}
+.post-list__item:last-child {
+  border-bottom: 1px solid #d5ddd8;
+}
+.post-list__item a {
+  font-weight: 600;
+  text-decoration: none;
+}
+.post-list__item a:hover {
+  text-decoration: underline;
+}
+.post-list__meta {
+  color: #5c6b66;
+  font-size: 0.9rem;
+}
+
+.btn {
+  display: inline-block;
+  padding: 0.45rem 0.9rem;
+  border: 1px solid #0f5c57;
+  border-radius: 4px;
+  color: #0f5c57;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+.btn:hover {
+  background: #0f5c57;
+  color: #fff;
+}
+
+.toolbar {
+  margin-bottom: 1.25rem;
+}
+
+.sort {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 0.85rem;
+  align-items: center;
+  color: #5c6b66;
+  font-size: 0.95rem;
+}
+.sort__link {
+  text-decoration: none;
+  color: #1a2220;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 0.1rem;
+}
+.sort__link.is-active {
+  color: #0f5c57;
+  border-bottom-color: #0f5c57;
+  font-weight: 600;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 1.5rem;
+}
+.pagination__link {
+  min-width: 2.1rem;
+  height: 2.1rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d5ddd8;
+  border-radius: 4px;
+  text-decoration: none;
+  color: #1a2220;
+  background: #ffffff;
+}
+.pagination__link.is-active {
+  background: #0f5c57;
+  border-color: #0f5c57;
+  color: #fff;
+  font-weight: 600;
+}
+
+.post-page__image {
+  width: 100%;
+  border-radius: 4px;
+  margin: 0 0 1.25rem;
+  border: 1px solid #d5ddd8;
+}
+.post-page__description {
+  font-size: 1.1rem;
+  color: #5c6b66;
+}
+.post-page__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.25rem;
+  color: #5c6b66;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+.post-page__body {
+  white-space: pre-line;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid #d5ddd8;
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 0.5rem;
+}
+.tag-list a {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border: 1px solid #d5ddd8;
+  border-radius: 4px;
+  background: #ffffff;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.related {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid #d5ddd8;
+}
+.related__title {
+  font-size: 1.25rem;
+}
+
+.empty {
+  color: #5c6b66;
+  padding: 1rem 0;
+}
