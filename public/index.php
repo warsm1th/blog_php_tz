@@ -6,14 +6,28 @@ use App\Controllers\CategoryController;
 use App\Controllers\HomeController;
 use App\Controllers\PostController;
 use App\Router;
+use Smarty\Smarty;
 
 $root = dirname(__DIR__);
 
 require $root . '/vendor/autoload.php';
 
-$homeController = new HomeController();
-$categoryController = new CategoryController();
-$postController = new PostController();
+$config = require $root . '/config/app.php';
+
+$compileDir = $config['paths']['smarty_compile'] ?? ($root . '/var/smarty/compile');
+if (!is_dir($compileDir) && !mkdir($compileDir, 0775, true) && !is_dir($compileDir)) {
+    throw new RuntimeException('Cannot create Smarty compile directory: ' . $compileDir);
+}
+
+$smarty = new Smarty();
+$smarty->setTemplateDir($config['paths']['templates'] ?? ($root . '/templates'));
+$smarty->setCompileDir($compileDir);
+// экранирование явно через |escape в шаблонах
+$smarty->setEscapeHtml(false);
+
+$homeController = new HomeController($smarty);
+$categoryController = new CategoryController($smarty);
+$postController = new PostController($smarty);
 
 $router = new Router();
 $router->get('/', [$homeController, 'index']);

@@ -4,10 +4,13 @@ declare(strict_types=1);
 
 namespace App\Controllers;
 
-final class HomeController
+final class HomeController extends BaseController
 {
     public function index(array $params = []): void
     {
-        echo 'home';
+        $this->render('home.tpl', [
+            'pageTitle' => 'Главная',
+            'categories' => [],
+        ]);
     }
 }
