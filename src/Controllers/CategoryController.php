@@ -25,8 +25,7 @@ final class CategoryController extends BaseController
         $category = $this->categories->findById($id);
 
         if ($category === null) {
-            http_response_code(404);
-            echo '404 Not Found';
+            $this->notFound();
             return;
         }
 

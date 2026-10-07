@@ -18,17 +18,9 @@ final class HomeController extends BaseController
 
     public function index(array $params = []): void
     {
-        $categories = $this->categories->findAllWithPosts();
-
-        foreach ($categories as &$category) {
-            $categoryId = (int) ($category['id'] ?? 0);
-            $category['posts'] = $this->categories->getRecentPosts($categoryId, 3);
-        }
-        unset($category);
-
         $this->render('home.tpl', [
             'pageTitle' => 'Главная',
-            'categories' => $categories,
+            'categories' => $this->categories->findAllWithRecentPosts(3),
         ]);
     }
 }

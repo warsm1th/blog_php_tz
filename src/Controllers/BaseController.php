@@ -21,4 +21,12 @@ abstract class BaseController
 
         $this->smarty->display($template);
     }
+
+    protected function notFound(): void
+    {
+        http_response_code(404);
+        $this->render('404.tpl', [
+            'pageTitle' => 'Страница не найдена',
+        ]);
+    }
 }

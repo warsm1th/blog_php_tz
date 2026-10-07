@@ -22,8 +22,7 @@ final class PostController extends BaseController
         $post = $this->posts->findById($id);
 
         if ($post === null) {
-            http_response_code(404);
-            echo '404 Not Found';
+            $this->notFound();
             return;
         }
 
