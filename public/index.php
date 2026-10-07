@@ -23,7 +23,7 @@ if (!is_dir($compileDir) && !mkdir($compileDir, 0775, true) && !is_dir($compileD
 }
 
 $smarty = new Smarty();
-$smarty->setTemplateDir($config['paths']['templates'] ?? ($root . '/templates'));
+$smarty->setTemplateDir($config['paths']['templates'] ?? ($root . '/resources/templates'));
 $smarty->setCompileDir($compileDir);
 // экранирование явно через |escape в шаблонах
 $smarty->setEscapeHtml(false);

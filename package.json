@@ -1,7 +1,7 @@
 {
     "private": true,
     "scripts": {
-        "build:css": "sass assets/scss/style.scss public/assets/css/style.css --style=expanded --no-source-map"
+        "build:css": "sass resources/scss/style.scss public/assets/css/style.css --style=expanded --no-source-map"
     },
     "devDependencies": {
         "sass": "^1.85.0"

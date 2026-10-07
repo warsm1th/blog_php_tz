@@ -37,7 +37,7 @@ return [
     'posts_per_page' => max(1, (int) (getenv('POSTS_PER_PAGE') ?: 5)),
     'paths' => [
         'root' => $root,
-        'templates' => $root . '/templates',
+        'templates' => $root . '/resources/templates',
         'smarty_compile' => $root . '/var/smarty/compile',
     ],
 ];
